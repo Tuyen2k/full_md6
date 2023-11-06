@@ -5,5 +5,5 @@ import com.example.du_an_md6.model.dto.DistrictDTO;
 
 
 
-public interface IDistrictMapper extends EntityMapper<DistrictDTO, District> {
+public interface DistrictMapper extends EntityMapper<DistrictDTO, District> {
 }
