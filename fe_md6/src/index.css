@@ -658,6 +658,12 @@ hr {
     margin-left: 15px;
     width: 30px;
 }
-
+.input-group-text{
+    width: 150px;
+}
+.image-input{
+    width: 300px;
+    height: 200px;
+}
 
 
