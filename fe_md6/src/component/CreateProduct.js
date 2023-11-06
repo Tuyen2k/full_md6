@@ -78,7 +78,9 @@ export default function CreateProduct() {
                             return(
                                 <>
                                     <div className="form-check">
-                                        <input className="form-check-input"  name='cate' type="checkbox" onChange={(e)=>handledCategories(e.target.value)} value={category.id} id={"categories"+index}/>
+                                        <input className="form-check-input"  name='cate' type="checkbox"
+                                               onChange={(e)=>handledCategories(e.target.value)}
+                                               value={category.id} id={"categories"+index}/>
                                         <label className="form-check-label" htmlFor={"categories"+index}>{category.name}</label>
                                     </div>
                                 </>
