@@ -19,17 +19,17 @@ public class AccountService implements UserDetailsService, IAccountService {
 
     @Override
     public List<Account> findAll() {
-        return null;
+        return iAccountRepository.findAll();
     }
 
     @Override
     public Account findById(Long id) {
-        return null;
+        return iAccountRepository.findById(id).orElse(null);
     }
 
     @Override
     public void save(Account account) {
-
+        iAccountRepository.save(account);
     }
 
     public Account findByUsername(String name) {
@@ -44,4 +44,12 @@ public class AccountService implements UserDetailsService, IAccountService {
         }
         return null;
     }
+
+    @Override
+    public void delete(Long id) {
+        Account account = findById(id);
+        account.setDelete(true);
+        iAccountRepository.save(account);
+    }
+
 }
