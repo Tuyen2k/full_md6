@@ -1,7 +1,9 @@
 package com.example.du_an_md6.service.impl;
 
+import com.example.du_an_md6.mapper.AccountMapper;
 import com.example.du_an_md6.model.Account;
 import com.example.du_an_md6.model.AccountPrinciple;
+import com.example.du_an_md6.model.dto.AccountDTO;
 import com.example.du_an_md6.repository.IAccountRepository;
 import com.example.du_an_md6.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ public class AccountService implements UserDetailsService, IAccountService {
     @Autowired
     private IAccountRepository iAccountRepository;
 
+    @Autowired
+    private AccountMapper accountMapper;
     @Override
     public List<Account> findAll() {
         return iAccountRepository.findAll();
@@ -52,4 +56,9 @@ public class AccountService implements UserDetailsService, IAccountService {
         iAccountRepository.save(account);
     }
 
+    @Override
+    public List<AccountDTO> findAllDTO() {
+        List<Account> list = iAccountRepository.findAll();
+        return accountMapper.toListDto(list);
+    }
 }

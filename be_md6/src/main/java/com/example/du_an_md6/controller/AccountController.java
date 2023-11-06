@@ -4,6 +4,7 @@ package com.example.du_an_md6.controller;
 import com.example.du_an_md6.jwt.service.JwtService;
 import com.example.du_an_md6.model.Account;
 import com.example.du_an_md6.model.Role;
+import com.example.du_an_md6.model.dto.AccountDTO;
 import com.example.du_an_md6.service.IAccountService;
 import com.example.du_an_md6.service.IRoleService;
 import com.example.du_an_md6.service.impl.AddressService;
@@ -11,10 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +19,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/auth")
+@RequestMapping("/api/accounts")
 public class AccountController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -34,7 +31,7 @@ public class AccountController {
     private AddressService addressService;
 
     @Autowired
-    private IAccountService userService;
+    private IAccountService accountService;
 
     @Autowired
     private IRoleService roleService;
@@ -42,10 +39,10 @@ public class AccountController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-//    @GetMapping
-//    public ResponseEntity<List<UserDTO>> findAll() {
-//        return new ResponseEntity<>(userService.findAllDTO(), HttpStatus.OK);
-//    }
+    @GetMapping
+    public ResponseEntity<List<AccountDTO>> findAll() {
+        return new ResponseEntity<>(accountService.findAllDTO(), HttpStatus.OK);
+    }
 //    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
 //    public ResponseEntity<Object> findById(@PathVariable Long id) {
 //        UserDTO user = userService.findOne(id);
@@ -93,22 +90,22 @@ public class AccountController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id){
-        userService.delete(id);
+        accountService.delete(id);
         return ResponseEntity.ok("Delete success!!!");
     }
 
     @PostMapping("/update")
     public ResponseEntity<String> save(@RequestBody Account account){
-        userService.save(account);
+        accountService.save(account);
         return ResponseEntity.ok("Update success!!!");
     }
 
     @PostMapping("/up_role/{id}")
     public ResponseEntity<Void> upRole(@RequestBody Role role,
                                        @PathVariable Long id){
-        Account account = userService.findById(id);
+        Account account = accountService.findById(id);
         account.setRole(role);
-        userService.save(account);
+        accountService.save(account);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
