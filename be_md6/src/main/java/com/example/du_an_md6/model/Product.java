@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 @Data
@@ -24,9 +25,11 @@ public class Product {
     @Column(nullable = false)
     @ColumnDefault("false")
     private boolean isDelete;
-    @ManyToOne
-    @JoinColumn(name = "id_category")
-    private Category category;
+    @ManyToMany
+    @JoinTable(name = "product_category",
+    joinColumns = @JoinColumn(name = "id_product"),
+    inverseJoinColumns = @JoinColumn(name = "id_category"))
+    private List<Category> category;
     @ColumnDefault("0")
     private int view;
     @ColumnDefault("0")
