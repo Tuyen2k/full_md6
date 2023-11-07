@@ -702,5 +702,10 @@ hr {
     justify-content: center;
     align-items: center;
 }
+.error{
+    width: 800px;
+    padding-left: 150px;
+    color: red;
+}
 
 
