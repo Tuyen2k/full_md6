@@ -4,6 +4,7 @@ import {saveProduct} from "../service/PruductService";
 import {getAllCategories} from "../service/CategoryService";
 import {upImageFirebase} from "../firebase/Upfirebase";
 import * as yup from "yup";
+import {useNavigate} from "react-router-dom";
 
 export default function CreateProduct() {
     const [file, setFile] = useState(undefined)
@@ -19,6 +20,7 @@ export default function CreateProduct() {
         image: "",
         timeMake: "",
     })
+    const navigate = useNavigate()
 
     useEffect(() => {
         getAllCategories().then(res => {
@@ -26,13 +28,38 @@ export default function CreateProduct() {
         })
     }, [])
 
+    // async function handledCreate(e) {
+    //     try {
+    //         const res = await upImageFirebase(file);
+    //         let merchant = { id_merchant: 1 };
+    //         let product = { ...e, image: res.name, categories: categories, merchant: merchant, priceSale: e.price * 0.95 };
+    //         const response = await saveProduct(product);
+    //
+    //         if (response) {
+    //             setMessage("Create product success!!!");
+    //             setLoad(true);
+    //
+    //         } else {
+    //             setMessage("Action error occurred. Please check again!!!");
+    //             setLoad(true);
+    //         }
+    //     } catch (error) {
+    //         setLoad(true);
+    //         setMessage("Action error occurred. Please check again!!!");
+    //         console.log("up file" + error);
+    //     } finally {
+    //         btn_modal.current.click(); // onclick btn modal
+    //     }
+    // }
+
+
     const handledCreate = (e) => {
-        if (file === undefined){
+        if (file === undefined) {
             setMessage("Please choose image for the product!!!")
             btn_modal.current.click();
             return
         }
-        if (categories === undefined || categories.length === 0){
+        if (categories === undefined || categories.length === 0) {
             setMessage("Please select category for the product!!!")
             btn_modal.current.click();
             return
@@ -42,21 +69,22 @@ export default function CreateProduct() {
             let a = {id_merchant: 1}
             let product = {...e, image: res.name, categories: categories, merchant: a, priceSale: e.price * 0.95}
             saveProduct(product).then(response => {
-                setLoad(true)
-                setFile(undefined)
-                setMessage("Create product success!!!")
-                btn_modal.current.click();          // onclick btn modal
-            }).catch(Error =>{
-                console.log(Error)
-                setLoad(true)
-                setMessage("Action error occurred. Please check again!!!")
-                btn_modal.current.click();          // onclick btn modal
+                if (response) {
+                    setMessage("Create product success!!!")
+                    btn_modal.current.click();          // onclick btn modal
+                    setLoad(true)
+                    navigate("/product/create")
+                } else {
+                    setMessage("Action error occurred. Please check again!!!")
+                    btn_modal.current.click();          // onclick btn modal
+                    setLoad(true)
+                }
             })
         }).catch(Error => {
-            setLoad(true)
             setMessage("Action error occurred. Please check again!!!")
             btn_modal.current.click();          // onclick btn modal
-            console.log("up file"+Error)
+            setLoad(true)
+            console.log("up file" + Error)
         })
     }
     const handledClickInput = () => {
@@ -86,7 +114,7 @@ export default function CreateProduct() {
 
     const schema = yup.object().shape({
         name: yup.string().required("Name is a data field that cannot be left blank."),
-        price: yup.number().required("Price is a data field that cannot be left blank.").min(5000,"Price cannot be lower than 5000."),
+        price: yup.number().required("Price is a data field that cannot be left blank.").min(5000, "Price cannot be lower than 5000."),
         timeMake: yup.string().required("Time make is a data field that cannot be left blank.")
     })
 
@@ -164,32 +192,6 @@ export default function CreateProduct() {
                                 </div>
                             </Form>
                         </Formik>
-
-                        {/*button modal*/}
-                        <button type="button" ref={btn_modal} className="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" style={{display: "none"}}>
-                        </button>
-
-                        {/*modal*/}
-                        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div className="modal-dialog">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">Notification</h5>
-                                        <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div className="modal-body">
-                                        <span>{message}</span>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 )
                 : (
@@ -201,7 +203,31 @@ export default function CreateProduct() {
                     </div>
                 )}
 
+            {/*button modal*/}
+            <button type="button" ref={btn_modal} className="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" style={{display: "none"}}>
+            </button>
 
+            {/*modal*/}
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Notification</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <span>{message}</span>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
