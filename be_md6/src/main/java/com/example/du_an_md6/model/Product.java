@@ -17,7 +17,6 @@ public class Product {
     @JoinColumn(name = "id_merchant")
     private Merchant merchant;
     @NotEmpty
-    @Column(unique = true)
     private String name;
     private double price;
     private double priceSale;
@@ -29,7 +28,7 @@ public class Product {
     @JoinTable(name = "product_category",
     joinColumns = @JoinColumn(name = "id_product"),
     inverseJoinColumns = @JoinColumn(name = "id_category"))
-    private List<Category> category;
+    private List<Category> categories;
     @ColumnDefault("0")
     private int view;
     @ColumnDefault("0")
