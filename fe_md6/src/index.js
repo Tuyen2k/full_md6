@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./layout/Footer";
 import PopupAppCart from "./layout/PopupAppCart";
+import FormRegister from "./component/Merchant";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,8 +21,8 @@ root.render(
               <Footer/>
               <PopupAppCart/>
           </>}>
-
           </Route>
+          <Route path={'/register'} element={<FormRegister/>}></Route>c
       </Routes>
   </BrowserRouter>
 );
