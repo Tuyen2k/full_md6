@@ -22,6 +22,7 @@ function FormRegister() {
     const [city, setCity] = useState([])
     const [district, setDistrict] = useState([])
     const [ward, setWard] = useState([])
+    const [image, setImage] = useState()
     const [merchant, setMerchant] = useState({
         activity: {
             id_activity: 3
@@ -31,39 +32,30 @@ function FormRegister() {
         email: '',
         open_time: '',
         close_time: '',
-        address_shop: {
-            city: {
-                id_city: ''
-            },
-            district: {
-                id_district: ''
-            },
-            ward: {
-                id_ward: ''
-            },
-            address_detail: ''
-        },
         image: ''
     });
+    const [address, setAddress] = useState({})
 
-    const handleCreateMerchant = () => {
-        console.log(merchant)
-        saveMerchant(merchant).then(r => {
-                alert(r);
-            navigate('/register')
-            }
-        ).catch(e => {
-                alert(e)
-                navigate('/register')
-            }
-        )
+    const handleCreateMerchant = (e) => {
+        upImageFirebase(image).then(r => {
+            let registerMerchant = {...e, addressShop:address, image : r.name}
+            console.log(registerMerchant)
+            saveMerchant(registerMerchant).then(r => {
+                    alert(r);
+                    navigate('/register')
+                }
+            ).catch(e => {
+                    navigate('/register')
+                }
+            )
+        })
     }
 
     const handleInputChangeCity = (e) => {
         const fieldValue = e.target.value;
         findDistrict(fieldValue).then(r => {
             setDistrict(r)
-            setMerchant(x => {
+            setAddress(x => {
                 return {
                     ...x,
                     city: {
@@ -80,7 +72,7 @@ function FormRegister() {
         const fieldValue = e.target.value;
         findWard(fieldValue).then(r => {
             setWard(r)
-            setMerchant(x => {
+            setAddress(x => {
                 return {
                     ...x,
                     district: {
@@ -95,7 +87,7 @@ function FormRegister() {
 
     const handleInputChangeWard = (e) => {
         const fieldValue = e.target.value;
-        setMerchant(x => {
+        setAddress(x => {
             return {
                 ...x,
                 ward: {
@@ -108,14 +100,7 @@ function FormRegister() {
     const handleInputChangeImage = (e) => {
         const file = e.target.files[0]
         if (!file) return;
-        upImageFirebase(file).then(r => {
-            setMerchant(x => {
-                return {
-                    ...x,
-                    image: r.name
-                };
-            });
-        })
+        setImage(file)
     }
 
     useEffect(() => {
@@ -129,21 +114,22 @@ function FormRegister() {
 
     const schema = yup.object().shape({
         name: yup.string().required(),
-        phone: yup.number().positive().integer().required().test(
-            val => val && val.toString().length === 10),
-        email: yup.string().matches(/^[A-Za-z0-9._-]+@[A-Za-z]+\.[A-Za-z]{2,}$/),
-        open_time: yup.date().required,
-        close_time: yup.date().required
+        phone: yup.string()
+            // .matches(/^0\d{9}$/, "Phone number must have 10 digits")
+            .required(),
+        email: yup.string().matches(/^[A-Za-z0-9._-]+@[A-Za-z]+\.[A-Za-z]{2,}$/,("with @ and no special characters")),
+        open_time: yup.string().required(),
+        close_time: yup.string().required()
     });
 
     return (
-        <MDBContainer className="my-5">
+        <MDBContainer className="my-4">
 
             <MDBCard>
                 <MDBRow className='g-0'>
 
                     <MDBCol md='5'>
-                        <MDBCardImage style={{height: '700px'}}
+                        <MDBCardImage style={{height: '800px'}}
                                       src='https://firebasestorage.googleapis.com/v0/b/react-firebase-storage-f6ec9.appspot.com/o/file%2FdoAnNgon.jpg?alt=media&token=e3c3377c-463d-481d-bb04-ba2d890e27b9'
                                       alt="register form" className='rounded-start w-100'/>
                     </MDBCol>
@@ -155,66 +141,69 @@ function FormRegister() {
                                 style={{letterSpacing: '1px', fontWeight: 'bolder', textAlign :"center" }}>Register Merchant</h5>
 
                             <div style={{width: "500px", margin: 'auto'}}>
-                                <Formik initialValues={merchant} onSubmit={handleCreateMerchant}>
+                                <Formik initialValues={merchant} onSubmit={(e)=>handleCreateMerchant(e)}
+                                        validationSchema={schema}>
                                     <Form>
                                         <div className="mb-3">
                                             <label className="form-label">Name</label>
                                             <Field className="form-control" name="name"/>
-                                            <ErrorMessage name="name" component="div" className="error"/>
+                                            <ErrorMessage name="name" component="div" />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Phone</label>
-                                            <Field type="number" className="form-control" name="phone"/>
-                                            <ErrorMessage name="phone" component="div" className="error"/>
+                                            <Field type="text   " className="form-control" name="phone"/>
+                                            <ErrorMessage name="phone" component="div" />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Email</label>
                                             <Field type="email" className="form-control" name="email"/>
-                                            <ErrorMessage name="email" component="div" className="error"/>
+                                            <ErrorMessage name="email" component="div" />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Open Time</label>
                                             <Field type="time" className="form-control" name="open_time"/>
-                                            <ErrorMessage name="open_time" component="div" className="error"/>
+                                            <ErrorMessage name="open_time" component="div" />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Close Time</label>
                                             <Field type="time" className="form-control" name="close_time"/>
-                                            <ErrorMessage name="close_time" component="div" className="error"/>
+                                            <ErrorMessage name="close_time" component="div" />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Address</label>
                                             <div className="row">
-                                                <Field onChange={handleInputChangeCity} as={"select"} className="form-select col-4">
+                                                <select onChange={handleInputChangeCity} className="form-select col-4">
                                                     <option>-----City-----</option>
                                                     {city && city.map(item => (
                                                         <option value={item.id_city}>{item.name}</option>
                                                     ))}
-                                                </Field>
-                                                <Field as={"select"} onChange={handleInputChangeDistrict} className="form-select col-4">
+                                                </select>
+                                                <select onChange={handleInputChangeDistrict} className="form-select col-4">
                                                     <option>-----District-----</option>
                                                     {district && district.map(item => (
                                                         <option value={item.id_district}>{item.name}</option>
                                                     ))}
-                                                </Field>
-                                                <Field as={"select"} onChange={handleInputChangeWard} className="form-select col-4">
+                                                </select>
+                                                <select onChange={handleInputChangeWard} className="form-select col-4">
                                                     <option>-----Ward-----</option>
                                                     {ward && ward.map(item => (
                                                         <option value={item.id_ward}>{item.name}</option>
                                                     ))}
-                                                </Field>
+                                                </select>
                                             </div>
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Address Detail</label>
-                                            <Field className="form-control" name="address_detail"/>
+                                            <input className="form-control" onChange={(e)=>setAddress({...address, address_detail: e.target.value})}/>
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Image</label>
                                             <input className="form-control" type="file"
                                                    onChange={(e)=>handleInputChangeImage(e)}/>
                                         </div>
-                                        <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Register</MDBBtn>
+                                        <div style={{textAlign: 'center'}}>
+                                            <button style={{width : '300px'}} type="button" className="btn btn-outline-success">Register</button>
+                                        </div>
                                     </Form>
                                 </Formik>
                             </div>
