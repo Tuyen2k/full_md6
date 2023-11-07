@@ -1,13 +1,12 @@
-package com.example.case_md4.service.iplm;
-
-import com.example.case_md4.model.Address;
-import com.example.case_md4.model.City;
-import com.example.case_md4.model.District;
-import com.example.case_md4.model.Ward;
-import com.example.case_md4.repository.IAddressRepository;
-import com.example.case_md4.repository.ICityRepository;
-import com.example.case_md4.repository.IDistrictRepository;
-import com.example.case_md4.repository.IWardRepository;
+package com.example.du_an_md6.service.impl;
+import com.example.du_an_md6.model.Address;
+import com.example.du_an_md6.model.City;
+import com.example.du_an_md6.model.District;
+import com.example.du_an_md6.model.Ward;
+import com.example.du_an_md6.repository.IAddressRepository;
+import com.example.du_an_md6.repository.ICityRepository;
+import com.example.du_an_md6.repository.IDistrictRepository;
+import com.example.du_an_md6.repository.IWardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,19 +36,13 @@ public class AddressServiceImpl {
     }
     public City findCityById(Long id_city) {
         Optional<City> city = iCityRepository.findById(id_city);
-        if (city.isPresent()) {
-            return city.get();
-        }
-        return null;
+        return city.orElse(null);
     }
 
     //district
     public District findDistrictById(Long id_district) {
         Optional<District> district = iDistrictRepository.findById(id_district);
-        if (district.isPresent()) {
-            return district.get();
-        }
-        return null;
+        return district.orElse(null);
     }
 
     public List<District> findAllDistrictByCity(Long id_city) {
@@ -60,10 +53,7 @@ public class AddressServiceImpl {
     //ward
     public Ward findWardById(Long id_ward) {
         Optional<Ward> ward = iWardRepository.findById(id_ward);
-        if (ward.isPresent()) {
-            return ward.get();
-        }
-        return null;
+        return ward.orElse(null);
     }
     public List<Ward> findAlWardByDistrict(Long id_district) {
         District district = findDistrictById(id_district);

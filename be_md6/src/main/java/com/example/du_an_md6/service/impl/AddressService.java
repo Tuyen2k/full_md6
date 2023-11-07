@@ -37,19 +37,13 @@ public class AddressService {
     }
     public City findCityById(Long id_city) {
         Optional<City> city = iCityRepository.findById(id_city);
-        if (city.isPresent()) {
-            return city.get();
-        }
-        return null;
+        return city.orElse(null);
     }
 
     //district
     public District findDistrictById(Long id_district) {
         Optional<District> district = iDistrictRepository.findById(id_district);
-        if (district.isPresent()) {
-            return district.get();
-        }
-        return null;
+        return district.orElse(null);
     }
 
     public List<District> findAllDistrictByCity(Long id_city) {
@@ -60,10 +54,7 @@ public class AddressService {
     //ward
     public Ward findWardById(Long id_ward) {
         Optional<Ward> ward = iWardRepository.findById(id_ward);
-        if (ward.isPresent()) {
-            return ward.get();
-        }
-        return null;
+        return ward.orElse(null);
     }
     public List<Ward> findAlWardByDistrict(Long id_district) {
         District district = findDistrictById(id_district);

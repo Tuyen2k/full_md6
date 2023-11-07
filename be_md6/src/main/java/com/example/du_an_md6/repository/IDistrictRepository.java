@@ -1,6 +1,5 @@
 package com.example.du_an_md6.repository;
 
-
 import com.example.du_an_md6.model.City;
 import com.example.du_an_md6.model.District;
 import org.springframework.data.jpa.repository.JpaRepository;
