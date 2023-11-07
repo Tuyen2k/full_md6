@@ -133,7 +133,11 @@ export default function CreateProduct() {
                 </Formik>
             </div> )
                 :(
-                    <div></div>
+                    <div className="d-flex justify-content-center">
+                        <div className="spinner-border" style={{width: "4rem", height: "4rem", marginTop: "40vh"}} role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
                 )}
         </>
     )
