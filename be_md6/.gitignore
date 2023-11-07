@@ -16,7 +16,7 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
+database_varinable.env
 ### IntelliJ IDEA ###
 .idea
 *.iws
