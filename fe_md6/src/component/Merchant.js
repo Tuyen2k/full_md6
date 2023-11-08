@@ -19,6 +19,7 @@ import {upImageFirebase} from "../firebase/Upfirebase";
 
 function FormRegister() {
     let navigate = useNavigate();
+    const [load, setLoad] = useState(true)
     const [city, setCity] = useState([])
     const [district, setDistrict] = useState([])
     const [ward, setWard] = useState([])
@@ -39,17 +40,19 @@ function FormRegister() {
     const [address, setAddress] = useState({})
 
     const handleCreateMerchant = (e) => {
+        setLoad(false)
         upImageFirebase(image).then(r => {
-            let registerMerchant = {...e, addressShop:address, image : r.name}
+            let registerMerchant = {...e, addressShop: address, image: r.name}
             console.log(registerMerchant)
             saveMerchant(registerMerchant).then(r => {
-                setMessage("Register success!")
-                btn_modal.current.click();
+                    setMessage("Register success!")
+                    btn_modal.current.click();
+                    setLoad(true)
                     navigate('/register')
                 }
             ).catch(e => {
-                setMessage("Register error!")
-                btn_modal.current.click();
+                    setMessage("Register error!")
+                    btn_modal.current.click();
                     navigate('/register')
                 }
             )
@@ -116,9 +119,9 @@ function FormRegister() {
     useEffect(() => {
         findCity().then(r => {
             setCity(r)
-        }).catch( error => {
-            setMessage("Error display City")
-            btn_modal.current.click();
+        }).catch(error => {
+                setMessage("Error display City")
+                btn_modal.current.click();
             }
         )
     }, []);
@@ -128,115 +131,139 @@ function FormRegister() {
         phone: yup.string()
             .matches(/^0\d{9}$/, "Phone number must have 10 digits")
             .required(),
-        email: yup.string().matches(/^[A-Za-z0-9._-]+@[A-Za-z]+\.[A-Za-z]{2,}$/,("with @ and no special characters")),
+        email: yup.string().matches(/^[A-Za-z0-9._-]+@[A-Za-z]+\.[A-Za-z]{2,}$/, ("with @ and no special characters")),
         open_time: yup.string().required(),
         close_time: yup.string().required()
     });
 
     return (
         <>
-        <MDBContainer className="my-4">
-            <MDBCard>
-                <MDBRow className='g-0'>
+            {load ? (
+                    <MDBContainer className="my-4">
+                        <MDBCard>
+                            <MDBRow className='g-0'>
 
-                    <MDBCol md='5'>
-                        <MDBCardImage style={{height: '800px'}}
-                                      src='https://firebasestorage.googleapis.com/v0/b/react-firebase-storage-f6ec9.appspot.com/o/file%2FdoAnNgon.jpg?alt=media&token=e3c3377c-463d-481d-bb04-ba2d890e27b9'
-                                      alt="register form" className='rounded-start w-100'/>
-                    </MDBCol>
+                                <MDBCol md='5'>
+                                    <MDBCardImage style={{height: '800px'}}
+                                                  src='https://firebasestorage.googleapis.com/v0/b/react-firebase-storage-f6ec9.appspot.com/o/file%2FdoAnNgon.jpg?alt=media&token=e3c3377c-463d-481d-bb04-ba2d890e27b9'
+                                                  alt="register form" className='rounded-start w-100'/>
+                                </MDBCol>
 
-                    <MDBCol md='7'>
-                        <MDBCardBody className='d-flex flex-column'>
+                                <MDBCol md='7'>
+                                    <MDBCardBody className='d-flex flex-column'>
 
-                            <h5 className="fw-normal my-4 pb-3"
-                                style={{letterSpacing: '1px', fontWeight: 'bolder', textAlign :"center" }}>Register Merchant</h5>
+                                        <h5 className="fw-normal my-4 pb-3"
+                                            style={{
+                                                letterSpacing: '1px',
+                                                fontWeight: 'bolder',
+                                                textAlign: "center"
+                                            }}>Register Merchant</h5>
 
-                            <div style={{width: "500px", margin: 'auto'}}>
-                                <Formik initialValues={merchant} onSubmit={(e)=>handleCreateMerchant(e)}
-                                        validationSchema={schema}>
-                                    <Form>
-                                        <div className="mb-3">
-                                            <label className="form-label">Name</label>
-                                            <Field className="form-control" name="name"/>
-                                            <ErrorMessage className="error" name="name" component="div" />
+                                        <div style={{width: "500px", margin: 'auto'}}>
+                                            <Formik initialValues={merchant} onSubmit={(e) => handleCreateMerchant(e)}
+                                                    validationSchema={schema}>
+                                                <Form>
+                                                    <div className="mb-3">
+                                                        <label className="form-label">Name</label>
+                                                        <Field className="form-control" name="name"/>
+                                                        <ErrorMessage className="error" name="name" component="div"/>
+                                                    </div>
+                                                    <div className="mb-3">
+                                                        <label className="form-label">Phone</label>
+                                                        <Field className="form-control" name="phone"/>
+                                                        <ErrorMessage className="error" name="phone" component="div"/>
+                                                    </div>
+                                                    <div className="mb-3">
+                                                        <label className="form-label">Email</label>
+                                                        <Field type="email" className="form-control" name="email"/>
+                                                        <ErrorMessage className="error" name="email" component="div"/>
+                                                    </div>
+                                                    <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
+                                                        <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
+                                                            <label className="form-label">Open Time</label>
+                                                            <Field type="time" className="form-control" name="open_time"/>
+                                                            <ErrorMessage className="error" name="open_time"
+                                                                          component="div"/>
+                                                        </div>
+                                                        <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
+                                                            <label className="form-label">Close Time</label>
+                                                            <Field type="time" className="form-control" name="close_time"/>
+                                                            <ErrorMessage className="error" name="close_time"
+                                                                          component="div"/>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
+                                                        <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
+                                                            <label className="form-label" htmlFor="ward">City</label>
+                                                            <select onChange={handleInputChangeCity}
+                                                                    className="form-select col-6">
+                                                                <option> City</option>
+                                                                {city && city.map(item => (
+                                                                    <option value={item.id_city}>{item.name}</option>
+                                                                ))}
+                                                            </select>
+                                                        </div>
+                                                        <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
+                                                            <label className="form-label" htmlFor="ward">District</label>
+                                                            <select onChange={handleInputChangeDistrict}
+                                                                    className="form-select col-6">
+                                                                <option> District</option>
+                                                                {district && district.map(item => (
+                                                                    <option value={item.id_district}>{item.name}</option>
+                                                                ))}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
+                                                        <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
+                                                            <label className="form-label" htmlFor="ward">Ward</label>
+                                                            <select onChange={handleInputChangeWard} id="ward"
+                                                                    className="form-select">
+                                                                <option>Ward</option>
+                                                                {ward && ward.map(item => (
+                                                                    <option value={item.id_ward}>{item.name}</option>
+                                                                ))}
+                                                            </select>
+                                                        </div>
+                                                        <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
+                                                            <label className="form-label">Detail</label>
+                                                            <input className="form-control" onChange={(e) => setAddress({
+                                                                ...address,
+                                                                address_detail: e.target.value
+                                                            })}/>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="mb-3">
+                                                        <label className="form-label">Image</label>
+                                                        <input className="form-control" type="file"
+                                                               onChange={(e) => handleInputChangeImage(e)}/>
+                                                    </div>
+                                                    <div style={{textAlign: 'center'}}>
+                                                        <button style={{width: '300px'}} type="submit"
+                                                                className="btn btn-outline-success">Register
+                                                        </button>
+                                                    </div>
+                                                </Form>
+                                            </Formik>
                                         </div>
-                                        <div className="mb-3">
-                                            <label className="form-label">Phone</label>
-                                            <Field className="form-control" name="phone"/>
-                                            <ErrorMessage className="error" name="phone" component="div" />
-                                        </div>
-                                        <div className="mb-3">
-                                            <label className="form-label">Email</label>
-                                            <Field type="email" className="form-control" name="email"/>
-                                            <ErrorMessage className="error" name="email" component="div" />
-                                        </div>
-                                       <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
-                                           <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
-                                               <label className="form-label">Open Time</label>
-                                               <Field type="time" className="form-control" name="open_time"/>
-                                               <ErrorMessage className="error" name="open_time" component="div" />
-                                           </div>
-                                           <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
-                                               <label className="form-label">Close Time</label>
-                                               <Field type="time" className="form-control" name="close_time"/>
-                                               <ErrorMessage className="error" name="close_time" component="div" />
-                                           </div>
-                                       </div>
-                                        <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
-                                            <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
-                                                <label className="form-label" htmlFor="ward">City</label>
-                                                <select onChange={handleInputChangeCity} className="form-select col-6">
-                                                    <option>           City        </option>
-                                                    {city && city.map(item => (
-                                                        <option value={item.id_city}>{item.name}</option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                            <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
-                                                <label className="form-label" htmlFor="ward">District</label>
-                                                <select onChange={handleInputChangeDistrict} className="form-select col-6">
-                                                    <option>           District        </option>
-                                                    {district && district.map(item => (
-                                                        <option value={item.id_district}>{item.name}</option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
-                                            <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
-                                                <label className="form-label" htmlFor="ward">Ward</label>
-                                                <select onChange={handleInputChangeWard} id="ward" className="form-select">
-                                                    <option>Ward</option>
-                                                    {ward && ward.map(item => (
-                                                        <option value={item.id_ward}>{item.name}</option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                            <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
-                                                <label className="form-label">Detail</label>
-                                                <input className="form-control" onChange={(e)=>setAddress({...address, address_detail: e.target.value})}/>
-                                            </div>
-                                        </div>
 
-                                        <div className="mb-3">
-                                            <label className="form-label">Image</label>
-                                            <input className="form-control" type="file"
-                                                   onChange={(e)=>handleInputChangeImage(e)}/>
-                                        </div>
-                                        <div style={{textAlign: 'center'}}>
-                                            <button style={{width : '300px'}} type="submit" className="btn btn-outline-success">Register</button>
-                                        </div>
-                                    </Form>
-                                </Formik>
-                            </div>
+                                    </MDBCardBody>
+                                </MDBCol>
 
-                        </MDBCardBody>
-                    </MDBCol>
+                            </MDBRow>
+                        </MDBCard>
 
-                </MDBRow>
-            </MDBCard>
-
-        </MDBContainer>
+                    </MDBContainer>
+                )
+                : (
+                    <div className="d-flex justify-content-center">
+                        <div className="spinner-border" style={{width: "4rem", height: "4rem", marginTop: "40vh"}}
+                             role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                )}
             {/*button modal*/}
             <button type="button" ref={btn_modal} className="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#exampleModal" style={{display: "none"}}>
