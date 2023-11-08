@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./layout/Footer";
 import PopupAppCart from "./layout/PopupAppCart";
+import CreateProduct from "./component/CreateProduct";
 import FormRegister from "./component/Merchant";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +23,7 @@ root.render(
               <PopupAppCart/>
           </>}>
           </Route>
+          <Route path="/product/create" element={<CreateProduct/>}></Route>
           <Route path={'/register'} element={<FormRegister/>}></Route>c
       </Routes>
   </BrowserRouter>

@@ -1,5 +1,4 @@
 package com.example.du_an_md6.controller;
-
 import com.example.du_an_md6.mapper.MerchantMapper;
 import com.example.du_an_md6.model.Address;
 import com.example.du_an_md6.model.Merchant;
@@ -50,6 +49,4 @@ public class MerchantController {
         merchantService.save(merchant);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
-
 }
