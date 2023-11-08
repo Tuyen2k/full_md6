@@ -32,4 +32,16 @@ public class MerchantService implements IMerchantService {
         merchantRepository.save(merchant);
     }
 
+
+    public Merchant findMerchantByIdAcc(Long id_account){
+        Merchant merchant = null;
+        List<Merchant> merchants = findAll();
+        for (Merchant m : merchants) {
+            if (m.getAccount().getId_account().equals(id_account)){
+                return merchant = m;
+            }
+        }
+        return merchant;
+    }
+
 }
