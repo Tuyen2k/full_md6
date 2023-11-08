@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./layout/Footer";
 import PopupAppCart from "./layout/PopupAppCart";
+import ProductList from "./component/ProductList";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,14 @@ root.render(
               <Footer/>
               <PopupAppCart/>
           </>}>
+
+          </Route>
+          <Route path="/listProduct" element={<>
+              <Header/>
+              <ProductList/>
+              <Footer/>
+          </>
+          }>
 
           </Route>
       </Routes>
