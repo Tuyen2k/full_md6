@@ -1,13 +1,11 @@
-
-
 export default function Header() {
 
 
     return (
         <>
             <header>
-                <nav className="navbar">
-                    {/*Topbar*/}
+                {/*Topbar*/}
+                <nav className="info-navbar">
                     <section className="topbar-wrapper">
                         <div className="container">
                             <div className="row text-lg-left">
@@ -43,11 +41,12 @@ export default function Header() {
                         </div>
                     </section>
                     {/*End Topbar*/}
-
+                </nav>
+                <nav className="navbar">
                     {/*Navbar*/}
                     <section className="container">
                         {/*Logo*/}
-                        <a href="" className="logo" style={{backgroundImage:`url("https://loship.vn/dist/images/logo.png")`}}></a>
+                        <a href="" className="logo" style={{backgroundImage:`url("https://firebasestorage.googleapis.com/v0/b/react-firebase-storage-f6ec9.appspot.com/o/file%2Flogo--web.png?alt=media&token=372f9a0c-25f3-4f56-9019-21ba8c8e607a")`}}></a>
                         {/*Menu-Nav*/}
                         <div className="user-nav-menu">
 
@@ -64,13 +63,13 @@ export default function Header() {
                             {/*End City Select*/}
 
                             {/*Menu Item*/}
-                            <a href="" className="btn-nav-link">Thử Quán Mới</a>
-                            <a href="" className="btn-nav-link">Thử Quán Mới</a>
-                            <a href="" className="btn-nav-link">Thử Quán Mới</a>
-                            <a href="" className="btn-nav-link">Thử Quán Mới</a>
-                            <a href="" className="btn-nav-link">Thử Quán Mới</a>
-                            <a href="" className="btn-nav-link">Thử Quán Mới</a>
-                            <a href="" className="btn-nav-link">Thử Quán Mới</a>
+                            <a href="" className="btn-nav-link">New Location</a>
+                            <a href="" className="btn-nav-link">Hot Deals</a>
+                            <a href="" className="btn-nav-link">Popular Brands</a>
+                            <a href="" className="btn-nav-link">Nearby Location</a>
+                            <a href="" className="btn-nav-link">Recently Order</a>
+                            <a href="" className="btn-nav-link">Healthy Choices</a>
+                            <a href="" className="btn-nav-link">Vegan Location</a>
 
                             {/*End Menu Item*/}
                             <div className="blank"></div>
@@ -78,7 +77,7 @@ export default function Header() {
                             <div className="user-nav-menu text-lg-right">
                                 <div className="nav-item user-panel">
                                     <div className="user-panel">
-                                        <span className="btn bg-light-gray text-black btn-login">Đăng nhập</span>
+                                        <span className="btn bg-light-gray text-black btn-login">Login</span>
                                     </div>
                                 </div>
                             </div>

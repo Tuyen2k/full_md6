@@ -9,10 +9,10 @@ export default function Home(){
                 <section className="top-banner loship" style={{backgroundImage:`url("https://loship.vn/dist/images/home-banner-18062021.jpg")`}}>
                     <h1>
                         <span>
-                            Đặt Món Nào
+                            Order Your Favorite
                             <br/>
                             <span className="banner-title-highlight">
-                                Cũng FreeShip
+                                With Freeshipping
                             </span>
                         </span>
                     </h1>
@@ -21,13 +21,13 @@ export default function Home(){
                             <span className="btn bg-transparent text-blue btn-search btn-link">
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" className="search-box-input" placeholder="tìm quán ăn gần nhất"/>
+                            <input type="text" className="search-box-input" placeholder="find the nearest location"/>
                         </div>
                     </div>
                 </section>
                 <section className="search-global-address">
                     <div className="search-global-address-content container">
-                        Giao tới địa chỉ
+                        Deliver to
                         <div className="address">
                             <i className="fa-solid fa-location-dot"></i>
                             <div className="content">Hà Nội</div>
@@ -54,7 +54,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -64,7 +64,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Lunch</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -74,7 +74,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Dinner</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -84,7 +84,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -94,7 +94,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -104,7 +104,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -114,7 +114,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -124,7 +124,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -134,7 +134,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -144,7 +144,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -154,7 +154,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -164,7 +164,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -174,7 +174,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -184,7 +184,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -194,7 +194,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -204,7 +204,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -214,7 +214,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -224,7 +224,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -234,7 +234,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Ăn trưa</b>
+                                                        <b>Breakfast</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -244,7 +244,7 @@ export default function Home(){
                                                 </div>
                                                 <div className="content">
                                                     <div className="metadata">
-                                                        <b>Xem tất cả</b>
+                                                        <b>See all</b>
                                                     </div>
                                                 </div>
                                             </a>
@@ -256,7 +256,7 @@ export default function Home(){
                                 {/*list sp*/}
                                 <section className="section-newsfeed">
                                     <div className="title with-action">
-                                        <h2>SẢN PHẨM MỚI</h2>
+                                        <h2>New Product</h2>
                                     </div>
                                     <div className="content">
                                         <div className="list-view">
@@ -269,11 +269,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -290,7 +290,7 @@ export default function Home(){
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -303,11 +303,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -320,11 +320,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -337,11 +337,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -354,11 +354,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -371,11 +371,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -388,11 +388,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -405,11 +405,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -422,11 +422,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -439,11 +439,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -456,17 +456,17 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                         <a className="btn-view-all" href="">
-                                            XEM TẤT CẢ <i className="fa-solid fa-angle-right fa-bounce fa-lg"></i>
+                                            See all <i className="fa-solid fa-angle-right fa-bounce fa-lg"></i>
                                         </a>
                                     </div>
                                 </section>
@@ -475,7 +475,7 @@ export default function Home(){
                                 {/*list merchant*/}
                                 <section className="section-newsfeed">
                                     <div className="title with-action">
-                                        <h2>CỬA HÀNG MỚI</h2>
+                                        <h2>New Restaurant</h2>
                                     </div>
                                     <div className="content">
                                         <div className="list-view">
@@ -488,11 +488,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -509,7 +509,7 @@ export default function Home(){
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -522,11 +522,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -539,11 +539,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -556,11 +556,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -573,11 +573,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -590,11 +590,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -607,11 +607,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -624,11 +624,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -641,11 +641,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -658,11 +658,11 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -675,17 +675,17 @@ export default function Home(){
                                                         BẾP CÓ GU
                                                     </div>
                                                     <div className="name mb-5">
-                                                        địa chỉ
+                                                        address
                                                     </div>
                                                     <div className="promotion">
                                                         <i className="fa-solid fa-tag"></i>
-                                                        <span>Giảm 10.000đ</span>
+                                                        <span>10.000đ off</span>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                         <a className="btn-view-all" href="">
-                                            XEM TẤT CẢ <i className="fa-solid fa-angle-right fa-bounce fa-lg"></i>
+                                            See all <i className="fa-solid fa-angle-right fa-bounce fa-lg"></i>
                                         </a>
                                     </div>
                                 </section>
