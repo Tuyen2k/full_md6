@@ -43,10 +43,13 @@ function FormRegister() {
             let registerMerchant = {...e, addressShop:address, image : r.name}
             console.log(registerMerchant)
             saveMerchant(registerMerchant).then(r => {
-                    alert(r);
+                setMessage("Register success!")
+                btn_modal.current.click();
                     navigate('/register')
                 }
             ).catch(e => {
+                setMessage("Register error!")
+                btn_modal.current.click();
                     navigate('/register')
                 }
             )
@@ -66,7 +69,8 @@ function FormRegister() {
                 };
             });
         }).catch(error => {
-            alert("error district display")
+            setMessage("Error display District")
+            btn_modal.current.click();
         })
     }
 
@@ -83,7 +87,8 @@ function FormRegister() {
                 };
             });
         }).catch(error => {
-            alert("error ward display")
+            setMessage("Error display Ward")
+            btn_modal.current.click();
         })
     }
 
@@ -101,7 +106,10 @@ function FormRegister() {
 
     const handleInputChangeImage = (e) => {
         const file = e.target.files[0]
-        if (!file) return;
+        if (!file) {
+            setMessage("Please choose image for the merchant!!!")
+            btn_modal.current.click();
+        }
         setImage(file)
     }
 
@@ -109,7 +117,8 @@ function FormRegister() {
         findCity().then(r => {
             setCity(r)
         }).catch( error => {
-            alert("error city display")
+            setMessage("Error display City")
+            btn_modal.current.click();
             }
         )
     }, []);
@@ -153,7 +162,7 @@ function FormRegister() {
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Phone</label>
-                                            <Field type="text" className="form-control" name="phone"/>
+                                            <Field className="form-control" name="phone"/>
                                             <ErrorMessage className="error" name="phone" component="div" />
                                         </div>
                                         <div className="mb-3">
@@ -161,45 +170,54 @@ function FormRegister() {
                                             <Field type="email" className="form-control" name="email"/>
                                             <ErrorMessage className="error" name="email" component="div" />
                                         </div>
-                                       <div>
-                                           <div className="mb-3">
+                                       <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
+                                           <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
                                                <label className="form-label">Open Time</label>
                                                <Field type="time" className="form-control" name="open_time"/>
                                                <ErrorMessage className="error" name="open_time" component="div" />
                                            </div>
-                                           <div className="mb-3">
+                                           <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
                                                <label className="form-label">Close Time</label>
                                                <Field type="time" className="form-control" name="close_time"/>
                                                <ErrorMessage className="error" name="close_time" component="div" />
                                            </div>
                                        </div>
-                                        <div className="mb-3">
-                                            <label className="form-label">Address</label>
-                                            <div className="row">
-                                                <select onChange={handleInputChangeCity} className="form-select col-4">
-                                                    <option>-----City-----</option>
+                                        <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
+                                            <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
+                                                <label className="form-label" htmlFor="ward">City</label>
+                                                <select onChange={handleInputChangeCity} className="form-select col-6">
+                                                    <option>           City        </option>
                                                     {city && city.map(item => (
                                                         <option value={item.id_city}>{item.name}</option>
                                                     ))}
                                                 </select>
-                                                <select onChange={handleInputChangeDistrict} className="form-select col-4">
-                                                    <option>-----District-----</option>
+                                            </div>
+                                            <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
+                                                <label className="form-label" htmlFor="ward">District</label>
+                                                <select onChange={handleInputChangeDistrict} className="form-select col-6">
+                                                    <option>           District        </option>
                                                     {district && district.map(item => (
                                                         <option value={item.id_district}>{item.name}</option>
                                                     ))}
                                                 </select>
-                                                <select onChange={handleInputChangeWard} className="form-select col-4">
-                                                    <option>-----Ward-----</option>
+                                            </div>
+                                        </div>
+                                        <div className="row" style={{marginLeft: "0px", marginRight: "0px"}}>
+                                            <div className="mb-3 col-6" style={{paddingLeft: "0px"}}>
+                                                <label className="form-label" htmlFor="ward">Ward</label>
+                                                <select onChange={handleInputChangeWard} id="ward" className="form-select">
+                                                    <option>Ward</option>
                                                     {ward && ward.map(item => (
                                                         <option value={item.id_ward}>{item.name}</option>
                                                     ))}
                                                 </select>
                                             </div>
+                                            <div className="mb-3 col-6" style={{paddingRight: "0px"}}>
+                                                <label className="form-label">Detail</label>
+                                                <input className="form-control" onChange={(e)=>setAddress({...address, address_detail: e.target.value})}/>
+                                            </div>
                                         </div>
-                                        <div className="mb-3">
-                                            <label className="form-label">Address Detail</label>
-                                            <input className="form-control" onChange={(e)=>setAddress({...address, address_detail: e.target.value})}/>
-                                        </div>
+
                                         <div className="mb-3">
                                             <label className="form-label">Image</label>
                                             <input className="form-control" type="file"

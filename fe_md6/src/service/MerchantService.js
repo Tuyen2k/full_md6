@@ -7,10 +7,8 @@ export const saveMerchant = (merchant) => {
         resolve(
             axios.post("http://localhost:8080/api/merchants/register", merchant)
                 .then(response => {
-                    return alert("Success")
                     }
                 ).catch(() => {
-                    alert("error save")
     })
         )
     })
@@ -23,7 +21,6 @@ export function findCity() {
                         return response.data;
                     }
                 ).catch(() => {
-                alert("error city data")
             })
         )
     })
@@ -36,7 +33,6 @@ export function findCity() {
                             return response.data;
                         }
                     ).catch(() => {
-                    alert("error")
                 })
             )
         })
@@ -49,7 +45,6 @@ export function findCity() {
                                 return response.data;
                             }
                         ).catch(() => {
-                        alert("error ward")
                     })
                 )
             })

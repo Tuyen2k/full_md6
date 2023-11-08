@@ -673,10 +673,6 @@ hr {
 body {
     background-color: #9A616D;
 }
-.form-select{
-    /*margin-left: 5px;*/
-    width: 33.33% !important;
-}
 
 .form-input{
     width: 60%;
@@ -713,6 +709,9 @@ body {
     width: 800px;
     padding-left: 150px;
     color: red;
+}
+div.error{
+    padding-left: 10px;
 }
 
 
