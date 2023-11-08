@@ -115,7 +115,7 @@ function FormRegister() {
     const schema = yup.object().shape({
         name: yup.string().required(),
         phone: yup.string()
-            // .matches(/^0\d{9}$/, "Phone number must have 10 digits")
+            .matches(/^0\d{9}$/, "Phone number must have 10 digits")
             .required(),
         email: yup.string().matches(/^[A-Za-z0-9._-]+@[A-Za-z]+\.[A-Za-z]{2,}$/,("with @ and no special characters")),
         open_time: yup.string().required(),
@@ -147,28 +147,30 @@ function FormRegister() {
                                         <div className="mb-3">
                                             <label className="form-label">Name</label>
                                             <Field className="form-control" name="name"/>
-                                            <ErrorMessage name="name" component="div" />
+                                            <ErrorMessage className="error" name="name" component="div" />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Phone</label>
-                                            <Field type="text   " className="form-control" name="phone"/>
-                                            <ErrorMessage name="phone" component="div" />
+                                            <Field type="text" className="form-control" name="phone"/>
+                                            <ErrorMessage className="error" name="phone" component="div" />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Email</label>
                                             <Field type="email" className="form-control" name="email"/>
-                                            <ErrorMessage name="email" component="div" />
+                                            <ErrorMessage className="error" name="email" component="div" />
                                         </div>
-                                        <div className="mb-3">
-                                            <label className="form-label">Open Time</label>
-                                            <Field type="time" className="form-control" name="open_time"/>
-                                            <ErrorMessage name="open_time" component="div" />
-                                        </div>
-                                        <div className="mb-3">
-                                            <label className="form-label">Close Time</label>
-                                            <Field type="time" className="form-control" name="close_time"/>
-                                            <ErrorMessage name="close_time" component="div" />
-                                        </div>
+                                       <div>
+                                           <div className="mb-3">
+                                               <label className="form-label">Open Time</label>
+                                               <Field type="time" className="form-control" name="open_time"/>
+                                               <ErrorMessage className="error" name="open_time" component="div" />
+                                           </div>
+                                           <div className="mb-3">
+                                               <label className="form-label">Close Time</label>
+                                               <Field type="time" className="form-control" name="close_time"/>
+                                               <ErrorMessage className="error" name="close_time" component="div" />
+                                           </div>
+                                       </div>
                                         <div className="mb-3">
                                             <label className="form-label">Address</label>
                                             <div className="row">
@@ -202,7 +204,7 @@ function FormRegister() {
                                                    onChange={(e)=>handleInputChangeImage(e)}/>
                                         </div>
                                         <div style={{textAlign: 'center'}}>
-                                            <button style={{width : '300px'}} type="button" className="btn btn-outline-success">Register</button>
+                                            <button style={{width : '300px'}} type="submit" className="btn btn-outline-success">Register</button>
                                         </div>
                                     </Form>
                                 </Formik>

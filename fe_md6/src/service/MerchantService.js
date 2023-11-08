@@ -2,17 +2,16 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 import React from "react";
 import data from "bootstrap/js/src/dom/data";
-
 export const saveMerchant = (merchant) => {
     return new Promise((resolve) => {
         resolve(
             axios.post("http://localhost:8080/api/merchants/register", merchant)
                 .then(response => {
-                    alert("Success")
+                    return alert("Success")
                     }
                 ).catch(() => {
                     alert("error save")
-            })
+    })
         )
     })
 }
