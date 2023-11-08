@@ -11,6 +11,7 @@ import Footer from "./layout/Footer";
 import PopupAppCart from "./layout/PopupAppCart";
 import CreateProduct from "./component/CreateProduct";
 import FormRegister from "./component/Merchant";
+import ProductList from "./component/ProductList";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,15 @@ root.render(
               <Footer/>
               <PopupAppCart/>
           </>}>
+
+          </Route>
+          <Route path="/listProduct" element={<>
+              <Header/>
+              <ProductList/>
+              <Footer/>
+          </>
+          }>
+
           </Route>
           <Route path="/product/create" element={<CreateProduct/>}></Route>
           <Route path={'/register'} element={<FormRegister/>}></Route>c
