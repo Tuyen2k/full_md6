@@ -25,16 +25,9 @@ root.render(
           </>}>
 
           </Route>
-          <Route path="/listProduct" element={<>
-              <Header/>
-              <ProductList/>
-              <Footer/>
-          </>
-          }>
-
-          </Route>
+          <Route path="/list" element={<ProductList/>}></Route>
           <Route path="/product/create" element={<CreateProduct/>}></Route>
-          <Route path={'/register'} element={<FormRegister/>}></Route>c
+          <Route path={'/register'} element={<FormRegister/>}></Route>
       </Routes>
   </BrowserRouter>
 );
