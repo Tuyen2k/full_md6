@@ -202,7 +202,7 @@ function FormRegister() {
                                                    onChange={(e)=>handleInputChangeImage(e)}/>
                                         </div>
                                         <div style={{textAlign: 'center'}}>
-                                            <button style={{width : '300px'}} type="button" className="btn btn-outline-success">Register</button>
+                                            <button style={{width : '300px'}} type="submit" className="btn btn-outline-success">Register</button>
                                         </div>
                                     </Form>
                                 </Formik>
