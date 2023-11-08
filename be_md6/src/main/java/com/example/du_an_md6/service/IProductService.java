@@ -7,5 +7,5 @@ import com.example.du_an_md6.service.IGenerateService;
 import java.util.List;
 
 public interface IProductService extends IGenerateService<ProductDTO> {
-    List<Product> findProductMerchant(Long id_merchant);
+    List<ProductDTO> findProductMerchant(Long id_merchant);
 }

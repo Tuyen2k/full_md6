@@ -13,14 +13,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductService implements IProductService {
-    private final IProductRepository productRepository;
-    private final ProductMapper productMapper;
-
     @Autowired
-    public ProductService(IProductRepository productRepository, ProductMapper productMapper) {
-        this.productRepository = productRepository;
-        this.productMapper = productMapper;
-    }
+    private IProductRepository productRepository;
+    @Autowired
+    private ProductMapper productMapper;
+
 
     @Override
     public List<ProductDTO> findAll() {
@@ -46,7 +43,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<Product> findProductMerchant(Long id_merchant) {
-        return productRepository.findProductMerchant(id_merchant);
+    public List<ProductDTO> findProductMerchant(Long id_merchant) {
+        return productMapper.toListDto(productRepository.findProductMerchant(id_merchant));
     }
 }

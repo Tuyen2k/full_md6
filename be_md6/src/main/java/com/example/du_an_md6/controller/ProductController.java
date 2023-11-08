@@ -18,7 +18,7 @@ public class ProductController {
     private IProductService productService;
 
     @GetMapping("{id_merchant}")
-    public ResponseEntity<List<Product>> findProductMerchant(@PathVariable Long id_merchant) {
+    public ResponseEntity<List<ProductDTO>> findProductMerchant(@PathVariable Long id_merchant) {
         return new ResponseEntity<>(productService.findProductMerchant(id_merchant), HttpStatus.OK);
     }
 
